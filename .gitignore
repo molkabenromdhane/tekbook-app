@@ -6,3 +6,6 @@ target/
 Dockerfile
 .dockerignore
 .env
+.env
+src/main/resources/application-local.properties
+scan.txt
