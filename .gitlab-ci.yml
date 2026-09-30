@@ -5,8 +5,17 @@ stages:
 default:
   image: maven:3.9-eclipse-temurin-21
 
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+
 compile:
   stage: build
+  cache:
+    key:
+      files:
+        - pom.xml
+    paths:
+      - .m2/repository
   script:
     - mvn -B package -DskipTests
     - ls -lh target/*.jar
